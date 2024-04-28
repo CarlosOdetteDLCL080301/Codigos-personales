@@ -27,7 +27,7 @@ def copiar_archivos_mp3(origen, destino):
                 copy2(origen_archivo, destino_archivo)
                 print(f"Archivo copiado: {origen_archivo} -> {destino_archivo}")    
 
-def main():
+def main(ruta_generica,ruta_carpeta,cadaCuantoRepetir):
     ####################################################################################################
     #============================================ VARIABLES ============================================
     ####################################################################################################
@@ -48,10 +48,6 @@ def main():
     #___________________________
     # VARIABLES PARA CARPETAS NUEVAS Y LEER RUTAS DE LA MUSICA
     #---------------------------
-
-    # Generar rutas de carpetas
-    ruta_generica = "\\Users\\carlo\\OneDrive\\Escritorio\\"
-    ruta_carpeta = f"{ruta_generica}Music"
     nuevaCarpeta = f"{ruta_generica}\\PlayList\\Fecha{fecha_formateada}Hora{hora_formateada}"
 
     # Crear la carpeta donde se almacenara la nueva playlist
@@ -62,7 +58,7 @@ def main():
     print(archivos)
     for cancion,ruta in zip(archivos,archivos):
         ordenDeCanciones += 1
-        if not ordenDeCanciones % 2 == 0:
+        if not ordenDeCanciones % cadaCuantoRepetir == 0:
             destino_archivo = os.path.join(nuevaCarpeta, f"{ordenDeCanciones}__{cancion[0]}")
             copy(cancion[1], destino_archivo)
             print(f"Archivo copiado: {cancion[1]} -> {destino_archivo}")
@@ -74,4 +70,8 @@ def main():
     print("EL PROGRAMA FINALIZO EXITOSAMENTE")
 
 
-main()
+# Generar rutas de carpetas
+ruta_generica = "\\Users\\carlo\\OneDrive\\Escritorio\\"
+ruta_carpeta = f"{ruta_generica}Music"
+cadaCuantoRepetir = 4
+main(ruta_generica,ruta_carpeta,cadaCuantoRepetir)

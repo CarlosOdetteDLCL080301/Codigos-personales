@@ -178,10 +178,12 @@ Public Sub EnviarCorreos()
         
         ' Configurar el correo
         With OutlookMail
+            .Display
             .To = dic(clave) ' Dirección de correo del destinatario
             .CC = "carlosodettedlcl@gmail.com" '; ferny.cruz0406@gmail.com"
             .Subject = "PRUEBA DEL PROGRAMA" ' Asunto del correo
-            .HTMLBody = cuerpoHTML
+            .HTMLBody = cuerpoHTML & .HTMLBody
+            
             ' Enviar el correo
             .Send
         End With
@@ -199,7 +201,3 @@ Public Sub EnviarCorreos()
     ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
 End Sub
-
-
-
-

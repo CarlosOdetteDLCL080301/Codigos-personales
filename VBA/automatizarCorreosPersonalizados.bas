@@ -1,3 +1,9 @@
+'===============================================================================
+'Nombre del programa: Automatizar Correos Personalizados
+'Autor: Carlos Odette De La Cruz López
+'Fecha: 30/Abril/2024
+'Descripción: Este programa automatiza el envío de correos personalizados a partir de una hoja de Excel
+'===============================================================================
 Public Sub EnviarCorreos()
     Dim cell As Range
 

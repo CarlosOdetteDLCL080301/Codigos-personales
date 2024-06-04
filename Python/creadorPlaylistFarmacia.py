@@ -31,7 +31,7 @@ def main(ruta_generica,ruta_carpeta,cadaCuantoRepetir):
     ####################################################################################################
     #============================================ VARIABLES ============================================
     ####################################################################################################
-
+    intercalarAudio = True
     #___________________________
     # VARIABLES DE FECHA Y HORA
     #---------------------------
@@ -63,15 +63,19 @@ def main(ruta_generica,ruta_carpeta,cadaCuantoRepetir):
             copy(cancion[1], destino_archivo)
             print(f"Archivo copiado: {cancion[1]} -> {destino_archivo}")
         else:
-            destino_archivo = os.path.join(nuevaCarpeta, f"{ordenDeCanciones}__farmacia san mateo.mp3")
-            copy(f"{ruta_carpeta}\\farmacia san mateo.mp3", destino_archivo)
-            pass
+            destino_archivo = os.path.join(nuevaCarpeta, f"{ordenDeCanciones}__AudioFarmaciaSanMateo.mp3")
+            if intercalarAudio:    
+                copy(f"{ruta_carpeta}\\farmacia san mateo.mp3", destino_archivo)
+                intercalarAudio = False
+            else: 
+                copy(f"{ruta_carpeta}\\segundoAudioFarmacia.mp3", destino_archivo)
+                intercalarAudio = True
         
     print("EL PROGRAMA FINALIZO EXITOSAMENTE")
 
 
 # Generar rutas de carpetas
-ruta_generica = "\\Users\\carlo\\OneDrive\\Escritorio\\"
+ruta_generica = "\\Users\\PC1\\Desktop\\"
 ruta_carpeta = f"{ruta_generica}Music"
 cadaCuantoRepetir = 4
 main(ruta_generica,ruta_carpeta,cadaCuantoRepetir)
